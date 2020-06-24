@@ -25,6 +25,14 @@ public class ShipmentItem extends AbstractPersistable<UUID> {
 
  private UUID shipmentOfGoodId;
 
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+ @JoinColumn(name = "shipment_item_id")
+ private List<ShipmentItemFeature> shippedWithFeatures = new ArrayList<>();
+
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+ @JoinColumn(name = "shipment_item_id")
+ private List<OrderShipment> shipmentOf = new ArrayList<>();
+
  public Long getSequence() {
 	return sequence;
  }
