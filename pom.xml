@@ -9,7 +9,7 @@
     </parent>
     <groupId>org.erpmicroservices.shipment.endpoints.rest</groupId>
     <artifactId>shipment-endpoint-rest</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>shipment-endpoint-rest</name>
     <description>Endpoints to support making and receiving shipments</description>
 
@@ -19,7 +19,7 @@
         <developerConnection>scm:git:ssh://git@github.com/ErpMicroServices/shipment-endpoint-rest.git
         </developerConnection>
         <url>scm:git:ssh://git@github.com/ErpMicroServices/shipment-endpoint-rest.git</url>
-      <tag>shipment-endpoint-rest-1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
