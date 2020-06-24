@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "shipment")
@@ -57,6 +57,30 @@ public class Shipment extends AbstractPersistable<UUID> {
  private UUID shippedToPartyId;
 
  private UUID inquiredAboutViaContactMechanismId;
+
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+ @JoinColumn(name = "shipment_id")
+ private List<ShipmentItem> items = new ArrayList<>();
+
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+ @JoinColumn(name = "shipment_id")
+ private List<ShipmentStatus> statuses = new ArrayList<>();
+
+ public List<ShipmentItem> getItems() {
+	return items;
+ }
+
+ public void setItems(List<ShipmentItem> items) {
+	this.items = items;
+ }
+
+ public List<ShipmentStatus> getStatuses() {
+	return statuses;
+ }
+
+ public void setStatuses(List<ShipmentStatus> statuses) {
+	this.statuses = statuses;
+ }
 
  public LocalDate getEstimatedShipDate() {
 	return estimatedShipDate;
