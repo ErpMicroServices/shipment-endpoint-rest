@@ -33,6 +33,10 @@ public class ShipmentItem extends AbstractPersistable<UUID> {
  @JoinColumn(name = "shipment_item_id")
  private List<OrderShipment> shipmentOf = new ArrayList<>();
 
+ @OneToMany
+ @JoinColumn(name = "shipment_item_id")
+ private List<Document> documents = new ArrayList<>();
+
  public Long getSequence() {
 	return sequence;
  }

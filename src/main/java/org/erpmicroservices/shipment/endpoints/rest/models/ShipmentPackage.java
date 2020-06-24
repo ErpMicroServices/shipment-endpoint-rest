@@ -26,6 +26,10 @@ public class ShipmentPackage extends AbstractPersistable<UUID> {
  @JoinColumn(name = "shipment_package_id")
  private List<PackagingContent> packagingContents = new ArrayList<>();
 
+ @OneToMany
+ @JoinColumn(name = "shipment_package_id")
+ private List<Document> documents = new ArrayList<>();
+
  public LocalDateTime getDateCreated() {
 	return dateCreated;
  }
