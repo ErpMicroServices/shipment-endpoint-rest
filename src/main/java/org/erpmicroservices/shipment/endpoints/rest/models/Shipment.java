@@ -70,6 +70,10 @@ public class Shipment extends AbstractPersistable<UUID> {
  @JoinColumn(name = "shipment_id")
  private List<Document> documents = new ArrayList<>();
 
+ @OneToMany
+ @JoinColumn(name = "shipment_id")
+ private List<ShipmentRouteSegment> routeSegments = new ArrayList<>();
+
  public List<ShipmentItem> getItems() {
 	return items;
  }
